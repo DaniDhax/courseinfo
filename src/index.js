@@ -6,32 +6,26 @@ import ReactDOM from 'react-dom'
 const Header = (props) => {
   return (
     <div>
-      <p>{props.course}</p>
+      <h1>{props.course}</h1>
     </div>
   )
 }
 
-// const Content = (props) => {
-//   return (
-//     <div>
-     
-//     </div>
-//   )
-// }
+const Content = (props) => {
+  return (
+    <div>
+      <p>{props.part1.name} {props.part1.exercises}</p>
+      <p>{props.part2.name} {props.part2.exercises}</p>
+      <p>{props.part3.name} {props.part3.exercises}</p>
+    </div>
+  )
+}
 
-// const Part = (props) => {
-//   return (
-//     <div>
-    
-//     </div>
-//   )
-// }
 
-// const Total = (props) => {
-//   return (
-//     <p>    </p>
-//   )
-// }
+const Total = (props) => {
+  return (
+    <p>Number of exercises {props.numero}</p>)
+}
 
 
 const App = () => {
@@ -51,29 +45,29 @@ const App = () => {
 
   return (
     <div>
-      <p>Hola</p>
       <Header course={course} />
-      
+      <Content part1={part1} part2={part2} part3={part3} />
+      <Total numero={part1.exercises + part2.exercises + part3.exercises} />
     </div>
   )
 }
 
-  // EJERCICIOS 1.1 Y 1.2
-  // const Header = (props) => {
-    //   return (
-      //     <div>
-      //       <h1>{props.course}</h1>
-      //     </div>
-      //   )
-      // }
+// EJERCICIOS 1.1 Y 1.2
+// const Header = (props) => {
+//   return (
+//     <div>
+//       <h1>{props.course}</h1>
+//     </div>
+//   )
+// }
 
 // const Content = (props) => {
-  //   return (
-    //     <div>
-    //      <Part part={props.part1} exercises={props.exercises1} />
-    //      <Part part={props.part2} exercises={props.exercises2} />
-    //      <Part part={props.part3} exercises={props.exercises3} />
-    //     </div>
+//   return (
+//     <div>
+//      <Part part={props.part1} exercises={props.exercises1} />
+//      <Part part={props.part2} exercises={props.exercises2} />
+//      <Part part={props.part3} exercises={props.exercises3} />
+//     </div>
 //   )
 // }
 
