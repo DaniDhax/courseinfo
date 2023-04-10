@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom'
 const Header = (props) => {
   return (
     <div>
-      <h1>Curso</h1>
+      <p>{props.course}</p>
     </div>
   )
 }
@@ -51,7 +51,9 @@ const App = () => {
 
   return (
     <div>
+      <p>Hola</p>
       <Header course={course} />
+      
     </div>
   )
 }
@@ -140,4 +142,4 @@ const App = () => {
 //   )
 // }
 
-// ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById('root'))
