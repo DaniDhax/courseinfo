@@ -1,30 +1,43 @@
 import React from "react"
 import ReactDOM from "react-dom"
 
-const Hello = ({ name, age }) => {
-  const bornYear = () => new Date().getFullYear() - age
-  
-    return (
-      <div>
-        <p>Hello {name}, you are {age} years old</p>
-        <p>So you were probably born in {bornYear()}</p>
-      </div>
-    )
-  }
-  
-  const App = () => {
-    const name = 'Peter'
-    const age = 10
-  
-    return (
-      <div>
-        <h1>Greetings</h1>
-        <Hello name="Maya" age={26 + 10} />
-        <br></br>
-        <Hello name={name} age={age} />
-      </div>
-    )
-  }
+  const App = ({counter}) => {
+    const estilo = {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      color: 'red',
+      backgroundColor: 'yellow',
+      fontsize: '20px',
+      borderStyle: 'solid',
+      borderWidth: '1px',
+      borderColor: 'black'
+    }
 
-ReactDOM.render(<App />, document.getElementById('root'))
+  const now = new Date();
+  const hours = now.getHours().toString().padStart(2, '0');
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  const seconds = now.getSeconds().toString().padStart(2, '0');
+
+  return (
+    <div style={estilo}>
+      <h1>Contador</h1>
+      <p style={{ fontWeight: 900, fontSize: '24px' }}>{`${hours}:${minutes}:${seconds}`}</p>
+    </div>
+  )
+}
+
+let counter = 1
+
+setInterval(
+  () => {
+    ReactDOM.render (<App counter={counter}/>, document.getElementById('root'))
+    counter += 1
+  },
+  1000
+)
+
+
+//ReactDOM.render(<App counter={counter}/>, document.getElementById('root'))
 //ReactDOM.render(<App />, document.getElementById('root'))
